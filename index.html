@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Taman Hutan Raya Ir. H. Djuanda</title>
+  <style>
+    :root {
+      --bg: #f4f7f4;
+      --surface: #ffffff;
+      --primary: #1b4332;
+      --accent: #2d6a4f;
+      --text: #1c2420;
+      --muted: #5c6b62;
+      --border: #dfe7e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--surface);
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+      padding-bottom: 40px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 360px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(16, 36, 26, 0.92) 0%, rgba(16, 36, 26, 0.35) 55%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+      color: #ffffff;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+    }
+
+    /* Main Content */
+    .content {
+      padding: 22px 20px 0;
+    }
+
+    .info-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .description-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 15.5px;
+      color: var(--text);
+      margin-bottom: 26px;
+      border: 1px solid var(--border);
+    }
+
+    .source-tag {
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Gallery */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-hint {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      cursor: pointer;
+      background: #e5ebe6;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16 / 10;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:active img {
+      transform: scale(0.97);
+    }
+
+    /* Map CTA Button */
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(27, 67, 50, 0.22);
+      transition: background 0.2s ease;
+    }
+
+    .cta-btn:active {
+      background: var(--accent);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 12, 0.96);
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 94%;
+      max-height: 78vh;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .lightbox-controls {
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .lb-btn {
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 24px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .lb-counter {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Главная обложка (вывеска TAHURA) -->
+    <div class="hero">
+      <img src="5197277833007408415.jpg" alt="Taman Hutan Raya Ir. H. Djuanda">
+      <div class="hero-overlay">
+        <span class="badge">Bandung, Indonesia</span>
+        <h1>Taman Hutan Raya Ir. H. Djuanda</h1>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- Краткие теги локации -->
+      <div class="info-pills">
+        <span class="pill">🌿 Conservation Area</span>
+        <span class="pill">📍 Cimenyan District</span>
+      </div>
+
+      <!-- Описание -->
+      <div class="description-card">
+        <p>
+          Taman Hutan Raya Ir. H. Juanda, locally shortened to "Tahura" is a conservation area and botanical garden in Bandung, Indonesia. The park is named after Djuanda Kartawidjaja, the last Prime Minister of Indonesia. It is located in Kampung Pakar, Ciburial Village, in the Cimenyan District.
+        </p>
+        <span class="source-tag">Source: Wikipedia</span>
+      </div>
+
+      <!-- Фотогалерея -->
+      <div class="section-title">
+        <span>Photo Gallery</span>
+        <span class="section-hint">Tap to zoom</span>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <div class="gallery-item" onclick="openLightbox(0)">
+          <img src="5197277833007408419.jpg" alt="Waterfall in Tahura">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(1)">
+          <img src="5197277833007408418.jpg" alt="Local Coconut Stall">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(2)">
+          <img src="5193168936579573064.jpg" alt="Monkey in the forest">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(3)">
+          <img src="5197277833007408417.jpg" alt="Forest hills view">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(4)">
+          <img src="5197277833007408416.jpg" alt="Tahura botanical landscape">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(5)">
+          <img src="5197277833007408415.jpg" alt="Tahura Entrance Sign">
+        </div>
+      </div>
+
+      <!-- Кнопка Google Maps -->
+      <a class="cta-btn" href="https://maps.google.com/?q=Taman+Hutan+Raya+Ir.+H.+Djuanda+Bandung" target="_blank" rel="noopener">
+        Open in Google Maps
+      </a>
+    </div>
+  </div>
+
+  <!-- Полноэкранный просмотр фото -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">&times;</button>
+    <img id="lb-img" src="" alt="Full view">
+    <div class="lightbox-controls">
+      <button class="lb-btn" onclick="changeSlide(-1)">&#8592; Prev</button>
+      <span class="lb-counter" id="lb-counter">1 / 6</span>
+      <button class="lb-btn" onclick="changeSlide(1)">Next &#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    const photos = [
+      "5197277833007408419.jpg",
+      "5197277833007408418.jpg",
+      "5193168936579573064.jpg",
+      "5197277833007408417.jpg",
+      "5197277833007408416.jpg",
+      "5197277833007408415.jpg"
+    ];
+
+    let currentIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCounter = document.getElementById('lb-counter');
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+    }
+
+    function changeSlide(step) {
+      currentIndex = (currentIndex + step + photos.length) % photos.length;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      lbImg.src = photos[currentIndex];
+      lbCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  </script>
+</body>
+</html>
