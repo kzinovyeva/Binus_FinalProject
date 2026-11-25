@@ -193,7 +193,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 14px;
     }
 
     .btn-primary {
@@ -232,6 +232,25 @@
 
     .btn-outline:hover {
       background: var(--soft-bg);
+    }
+
+    /* Sustainability Note under Hero Map CTA */
+    .sustainability-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--steel);
+      margin-bottom: 28px;
+    }
+
+    .sustainability-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--royal);
+      flex-shrink: 0;
     }
 
     .hero-facts {
@@ -624,7 +643,7 @@
       color: var(--steel);
     }
 
-    /* Places Nearby */
+    /* Places Nearby & Sustainability Banner */
     .nearby-section {
       padding-bottom: clamp(56px, 7vw, 88px);
     }
@@ -639,6 +658,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+      margin-bottom: 24px;
     }
 
     .nearby-item {
@@ -670,6 +690,56 @@
     }
 
     .nearby-item:hover .nearby-action {
+      background: var(--royal);
+      color: #ffffff;
+    }
+
+    /* Sustainability Callout Bar */
+    .eco-bar {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .eco-copy {
+      max-width: 680px;
+    }
+
+    .eco-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--royal);
+      margin-bottom: 4px;
+    }
+
+    .eco-text {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .eco-link {
+      background: var(--soft-bg);
+      color: var(--royal);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 20px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .eco-link:hover {
       background: var(--royal);
       color: #ffffff;
     }
@@ -815,8 +885,8 @@
         <a href="#nearby">Places Nearby</a>
       </nav>
 
-      <a class="header-pill-btn" href="https://maps.google.com/?q=Don+Bakeshop+Grand+Indonesia" target="_blank" rel="noopener">
-        Route on Map
+      <a class="header-pill-btn" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">
+        Eco Route
       </a>
     </div>
   </header>
@@ -824,8 +894,8 @@
   <!-- Running Ticker -->
   <div class="ticker-wrap" aria-hidden="true">
     <div class="ticker-track">
-      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Post with #ExploreYuk_DonBakeshop on TikTok or Instagram &bull; Open Daily 10:00 AM – 10:00 PM &bull;</span>
-      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Post with #ExploreYuk_DonBakeshop on TikTok or Instagram &bull; Open Daily 10:00 AM – 10:00 PM &bull;</span>
+      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Travel Sustainably with Google Maps Transit &amp; Walking Routes &bull; Post with #ExploreYuk_DonBakeshop &bull;</span>
+      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Travel Sustainably with Google Maps Transit &amp; Walking Routes &bull; Post with #ExploreYuk_DonBakeshop &bull;</span>
     </div>
   </div>
 
@@ -841,7 +911,12 @@
 
         <div class="hero-buttons">
           <a class="btn-primary" href="#wheel">Spin Reward Wheel</a>
-          <a class="btn-outline" href="https://maps.google.com/?q=Don+Bakeshop+Grand+Indonesia" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">Plan Eco Route in Google Maps</a>
+        </div>
+
+        <div class="sustainability-note">
+          <span class="sustainability-dot"></span>
+          <span>Sustainability Tip: Plan a low-emission walking or public transit route via Google Maps (MRT Bundaran HI &amp; TransJakarta are steps away).</span>
         </div>
 
         <div class="hero-facts">
@@ -990,24 +1065,37 @@
         </div>
 
         <div class="nearby-grid">
-          <a class="nearby-item" href="https://maps.google.com/?q=Dairy+Queen+Grand+Indonesia" target="_blank" rel="noopener">
+          <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=Dairy+Queen+Grand+Indonesia&travelmode=walking" target="_blank" rel="noopener">
             <span>Dairy Queen</span>
-            <span class="nearby-action">View on Map</span>
+            <span class="nearby-action">Walk via Maps</span>
           </a>
 
-          <a class="nearby-item" href="https://maps.google.com/?q=MangGang+Grand+Indonesia" target="_blank" rel="noopener">
+          <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=MangGang+Grand+Indonesia&travelmode=walking" target="_blank" rel="noopener">
             <span>MangGang Grand Indonesia</span>
-            <span class="nearby-action">View on Map</span>
+            <span class="nearby-action">Walk via Maps</span>
           </a>
 
-          <a class="nearby-item" href="https://maps.google.com/?q=Sambal+Bakar+SCBD+Thamrin" target="_blank" rel="noopener">
+          <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=Sambal+Bakar+SCBD+Thamrin&travelmode=transit" target="_blank" rel="noopener">
             <span>Sambal Bakar SCBD - Thamrin</span>
-            <span class="nearby-action">View on Map</span>
+            <span class="nearby-action">Eco Transit</span>
           </a>
 
-          <a class="nearby-item" href="https://maps.google.com/?q=Bundaran+HI+Jakarta" target="_blank" rel="noopener">
+          <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=Bundaran+HI+Jakarta&travelmode=walking" target="_blank" rel="noopener">
             <span>Bundaran HI</span>
-            <span class="nearby-action">View on Map</span>
+            <span class="nearby-action">Walk via Maps</span>
+          </a>
+        </div>
+
+        <!-- Sustainability Callout inside Nearby Box -->
+        <div class="eco-bar">
+          <div class="eco-copy">
+            <span class="eco-label">Sustainability &amp; Green Mobility</span>
+            <p class="eco-text">
+              Reduce your carbon footprint while exploring Jakarta — build an eco-friendly walking, MRT, or fuel-efficient route directly in Google Maps.
+            </p>
+          </div>
+          <a class="eco-link" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">
+            Build Eco Route
           </a>
         </div>
       </div>
@@ -1026,7 +1114,7 @@
         </div>
         <span class="logo-text" style="font-size: 18px;">Explore<span>Yuk</span></span>
       </div>
-      <span class="footer-note">Don Bakeshop Grand Indonesia &middot; Skybridge Level 3A (Unit SB-7B)</span>
+      <span class="footer-note">Don Bakeshop Grand Indonesia &middot; Sustainable City Exploration</span>
     </div>
   </footer>
 
@@ -1124,7 +1212,6 @@
         ctx.strokeStyle = "#ffffff";
         ctx.stroke();
 
-        // Draw Label
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(startAngle + arcSize / 2);
