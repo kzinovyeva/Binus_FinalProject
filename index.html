@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Taman Hutan Raya Ir. H. Djuanda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don Bakeshop Grand Indonesia — ExploreYuk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4f7f4;
-      --surface: #ffffff;
-      --primary: #1b4332;
-      --accent: #2d6a4f;
-      --text: #1c2420;
-      --muted: #5c6b62;
-      --border: #dfe7e1;
+      --steel: rgb(70, 130, 180);
+      --sky: rgb(135, 206, 235);
+      --royal: rgb(65, 105, 225);
+      --bg: #ffffff;
+      --soft-bg: #f4f8fc;
+      --text: #1c242e;
+      --text-light: #64748b;
+      --border: #e2ecf5;
     }
 
     * {
@@ -23,186 +27,709 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Clean Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px clamp(20px, 4vw, 40px);
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--royal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo-text span {
+      color: var(--royal);
+    }
+
+    .nav-links {
+      display: none;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--royal);
+    }
+
+    .header-pill-btn {
+      background: var(--royal);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      transition: background 0.2s;
+    }
+
+    .header-pill-btn:hover {
+      background: var(--steel);
+    }
+
+    /* Running Ticker Bar */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: var(--sky);
+      color: #0e243d;
+      padding: 9px 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-item {
+      padding-right: 36px;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+    }
+
+    /* Hero Split Section */
+    .hero {
+      padding: clamp(32px, 5vw, 64px) 0 clamp(40px, 6vw, 72px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(28px, 5vw, 56px);
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--steel);
+      background: var(--soft-bg);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .hero-desc {
+      font-size: clamp(15.5px, 1.7vw, 17px);
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      background: var(--royal);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
     }
 
-    .app-container {
-      width: 100%;
-      max-width: 480px;
-      background: var(--surface);
-      min-height: 100vh;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
-      padding-bottom: 40px;
+    .btn-primary:hover {
+      background: var(--steel);
+      transform: translateY(-1px);
     }
 
-    /* Hero Section */
-    .hero {
+    .btn-outline {
+      background: transparent;
+      color: var(--royal);
+      border: 1.5px solid var(--royal);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13.5px 28px;
+      border-radius: 999px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-outline:hover {
+      background: var(--soft-bg);
+    }
+
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .fact-item span {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 2px;
+    }
+
+    .fact-item strong {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-image-card {
       position: relative;
-      height: 360px;
-      width: 100%;
+      border-radius: 28px;
       overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: var(--soft-bg);
+      box-shadow: 0 20px 50px rgba(70, 130, 180, 0.14);
     }
 
-    .hero img {
+    .hero-image-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(16, 36, 26, 0.92) 0%, rgba(16, 36, 26, 0.35) 55%, transparent 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px 20px;
-      color: #ffffff;
+    /* Interactive Roulette Reward Section */
+    .roulette-section {
+      padding-bottom: clamp(48px, 6vw, 76px);
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.4px;
-      margin-bottom: 10px;
-      width: fit-content;
-    }
-
-    h1 {
-      font-size: 26px;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.3px;
-    }
-
-    /* Main Content */
-    .content {
-      padding: 22px 20px 0;
-    }
-
-    .info-pills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .pill {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--primary);
-    }
-
-    .description-card {
-      background: var(--bg);
-      border-radius: 16px;
-      padding: 18px;
-      font-size: 15.5px;
-      color: var(--text);
-      margin-bottom: 26px;
-      border: 1px solid var(--border);
-    }
-
-    .source-tag {
-      display: block;
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    /* Gallery */
-    .section-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
+    .roulette-card {
+      background: var(--soft-bg);
+      border-radius: 32px;
+      padding: clamp(28px, 5vw, 52px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(32px, 5vw, 56px);
       align-items: center;
     }
 
-    .section-hint {
+    .roulette-tag {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--royal);
       font-size: 12px;
-      font-weight: 400;
-      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .roulette-info h2 {
+      font-size: clamp(26px, 3.6vw, 38px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .roulette-info p {
+      font-size: clamp(15px, 1.7vw, 16.5px);
+      color: var(--text-light);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+
+    .hashtag-pill-box {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 14px 20px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      max-width: 100%;
+    }
+
+    .hashtag-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      display: block;
+    }
+
+    .hashtag-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--royal);
+    }
+
+    .copy-btn {
+      background: var(--soft-bg);
+      color: var(--royal);
+      border: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--royal);
+      color: #ffffff;
+    }
+
+    .spin-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .spin-btn {
+      background: var(--royal);
+      color: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 34px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .spin-btn:hover:not(:disabled) {
+      background: var(--steel);
+      transform: translateY(-1px);
+    }
+
+    .spin-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .spins-left {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--steel);
+    }
+
+    /* Result Banner after Spin */
+    .result-box {
+      display: none;
+      margin-top: 24px;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 22px 26px;
+      box-shadow: 0 12px 32px rgba(65, 105, 225, 0.12);
+    }
+
+    .result-box.visible {
+      display: block;
+      animation: fadeUp 0.4s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--steel);
+      margin-bottom: 4px;
+    }
+
+    .result-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--royal);
+      margin-bottom: 6px;
+    }
+
+    .result-note {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Wheel Visual */
+    .wheel-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .wheel-wrapper {
+      position: relative;
+      width: min(320px, 78vw);
+      height: min(320px, 78vw);
+      border-radius: 50%;
+      padding: 10px;
+      background: #ffffff;
+      box-shadow: 0 18px 44px rgba(70, 130, 180, 0.18);
+    }
+
+    .wheel-pointer {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 24px solid var(--text);
+      z-index: 10;
+    }
+
+    #wheel-canvas {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: block;
+      transition: transform 4.2s cubic-bezier(0.15, 0.85, 0.2, 1);
+    }
+
+    .wheel-center-cap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--royal);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+      pointer-events: none;
+    }
+
+    /* Section Headings */
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 3.2vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--steel);
+    }
+
+    /* Overview & Menu Highlights */
+    .overview-section {
+      padding-bottom: clamp(48px, 6vw, 76px);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--soft-bg);
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card-num {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--royal);
+      margin-bottom: 12px;
+    }
+
+    .info-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* Photo Gallery */
+    .gallery-section {
+      padding-bottom: clamp(48px, 6vw, 76px);
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 28px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
 
-    .gallery-item {
-      position: relative;
-      border-radius: 14px;
+    .photo-card {
+      border-radius: 24px;
       overflow: hidden;
-      aspect-ratio: 3 / 4;
+      background: var(--soft-bg);
       cursor: pointer;
-      background: #e5ebe6;
+      display: flex;
+      flex-direction: column;
     }
 
-    .gallery-item:first-child {
-      grid-column: span 2;
-      aspect-ratio: 16 / 10;
+    .photo-thumb {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
     }
 
-    .gallery-item img {
+    .photo-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.45s ease;
+      display: block;
     }
 
-    .gallery-item:active img {
-      transform: scale(0.97);
+    .photo-card:hover .photo-thumb img {
+      transform: scale(1.04);
     }
 
-    /* Map CTA Button */
-    .cta-btn {
+    .photo-meta {
+      padding: 18px 22px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      background: var(--primary);
-      color: #ffffff;
-      text-decoration: none;
+      justify-content: space-between;
+    }
+
+    .photo-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .photo-tag {
+      font-size: 12px;
       font-weight: 600;
-      font-size: 16px;
-      padding: 16px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(27, 67, 50, 0.22);
-      transition: background 0.2s ease;
+      color: var(--steel);
     }
 
-    .cta-btn:active {
-      background: var(--accent);
+    /* Places Nearby */
+    .nearby-section {
+      padding-bottom: clamp(56px, 7vw, 88px);
     }
 
-    /* Lightbox Modal */
+    .nearby-box {
+      background: var(--soft-bg);
+      border-radius: 28px;
+      padding: clamp(24px, 4vw, 40px);
+    }
+
+    .nearby-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .nearby-item {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 15px;
+      transition: box-shadow 0.2s, color 0.2s;
+    }
+
+    .nearby-item:hover {
+      color: var(--royal);
+      box-shadow: 0 6px 20px rgba(70, 130, 180, 0.12);
+    }
+
+    .nearby-action {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--steel);
+      background: var(--soft-bg);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .nearby-item:hover .nearby-action {
+      background: var(--royal);
+      color: #ffffff;
+    }
+
+    /* Clean Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      background: var(--soft-bg);
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 40px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* Responsive Breakpoints */
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .roulette-card {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .nearby-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(10, 15, 12, 0.96);
+      background: rgba(16, 24, 36, 0.94);
       z-index: 1000;
       display: none;
       flex-direction: column;
@@ -215,131 +742,438 @@
     }
 
     .lightbox img {
-      max-width: 94%;
+      max-width: 90vw;
       max-height: 78vh;
-      border-radius: 10px;
+      border-radius: 20px;
       object-fit: contain;
     }
 
-    .lightbox-controls {
+    .lb-controls {
       position: absolute;
-      bottom: 30px;
+      bottom: 28px;
       display: flex;
-      gap: 20px;
       align-items: center;
+      gap: 18px;
     }
 
     .lb-btn {
-      background: rgba(255, 255, 255, 0.16);
-      color: #fff;
+      background: #ffffff;
+      color: var(--text);
       border: none;
-      padding: 10px 18px;
-      border-radius: 24px;
-      font-size: 15px;
-      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
       cursor: pointer;
+    }
+
+    .lb-btn:hover {
+      background: var(--sky);
     }
 
     .lb-close {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.18);
-      color: #fff;
+      top: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       font-size: 22px;
       cursor: pointer;
     }
 
     .lb-counter {
-      color: rgba(255, 255, 255, 0.8);
+      color: #ffffff;
       font-size: 14px;
+      font-weight: 700;
     }
   </style>
 </head>
 <body>
 
-  <div class="app-container">
-    <!-- Главная обложка (вывеска TAHURA) -->
-    <div class="hero">
-      <img src="5197277833007408415.jpg" alt="Taman Hutan Raya Ir. H. Djuanda">
-      <div class="hero-overlay">
-        <span class="badge">Bandung, Indonesia</span>
-        <h1>Taman Hutan Raya Ir. H. Djuanda</h1>
-      </div>
-    </div>
-
-    <div class="content">
-      <!-- Краткие теги локации -->
-      <div class="info-pills">
-        <span class="pill">🌿 Conservation Area</span>
-        <span class="pill">📍 Cimenyan District</span>
-      </div>
-
-      <!-- Описание -->
-      <div class="description-card">
-        <p>
-          Taman Hutan Raya Ir. H. Juanda, locally shortened to "Tahura" is a conservation area and botanical garden in Bandung, Indonesia. The park is named after Djuanda Kartawidjaja, the last Prime Minister of Indonesia. It is located in Kampung Pakar, Ciburial Village, in the Cimenyan District.
-        </p>
-        <span class="source-tag">Source: Wikipedia</span>
-      </div>
-
-      <!-- Фотогалерея -->
-      <div class="section-title">
-        <span>Photo Gallery</span>
-        <span class="section-hint">Tap to zoom</span>
-      </div>
-
-      <div class="gallery-grid" id="gallery">
-        <div class="gallery-item" onclick="openLightbox(0)">
-          <img src="5197277833007408419.jpg" alt="Waterfall in Tahura">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <polygon points="15.5 8.5 13.8 13.8 8.5 15.5 10.2 10.2 15.5 8.5"></polygon>
+          </svg>
         </div>
-        <div class="gallery-item" onclick="openLightbox(1)">
-          <img src="5197277833007408418.jpg" alt="Local Coconut Stall">
-        </div>
-        <div class="gallery-item" onclick="openLightbox(2)">
-          <img src="5193168936579573064.jpg" alt="Monkey in the forest">
-        </div>
-        <div class="gallery-item" onclick="openLightbox(3)">
-          <img src="5197277833007408417.jpg" alt="Forest hills view">
-        </div>
-        <div class="gallery-item" onclick="openLightbox(4)">
-          <img src="5197277833007408416.jpg" alt="Tahura botanical landscape">
-        </div>
-        <div class="gallery-item" onclick="openLightbox(5)">
-          <img src="5197277833007408415.jpg" alt="Tahura Entrance Sign">
-        </div>
-      </div>
-
-      <!-- Кнопка Google Maps -->
-      <a class="cta-btn" href="https://maps.google.com/?q=Taman+Hutan+Raya+Ir.+H.+Djuanda+Bandung" target="_blank" rel="noopener">
-        Open in Google Maps
+        <span class="logo-text">Explore<span>Yuk</span></span>
       </a>
+
+      <nav class="nav-links">
+        <a href="#wheel">Spin &amp; Win</a>
+        <a href="#overview">Menu Highlights</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#nearby">Places Nearby</a>
+      </nav>
+
+      <a class="header-pill-btn" href="https://maps.google.com/?q=Don+Bakeshop+Grand+Indonesia" target="_blank" rel="noopener">
+        Route on Map
+      </a>
+    </div>
+  </header>
+
+  <!-- Running Ticker -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Post with #ExploreYuk_DonBakeshop on TikTok or Instagram &bull; Open Daily 10:00 AM – 10:00 PM &bull;</span>
+      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Post with #ExploreYuk_DonBakeshop on TikTok or Instagram &bull; Open Daily 10:00 AM – 10:00 PM &bull;</span>
     </div>
   </div>
 
-  <!-- Полноэкранный просмотр фото -->
+  <main class="container">
+    <!-- Hero Split -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Skybridge Level 3A (Unit SB-7B)</span>
+        <h1>Don Bakeshop Grand Indonesia</h1>
+        <p class="hero-desc">
+          Don Bakeshop at Grand Indonesia is an artisan bakery located on Skybridge Level 3A (Unit SB-7B). It is open daily from 10:00 AM to 10:00 PM.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#wheel">Spin Reward Wheel</a>
+          <a class="btn-outline" href="https://maps.google.com/?q=Don+Bakeshop+Grand+Indonesia" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+
+        <div class="hero-facts">
+          <div class="fact-item">
+            <span>Status</span>
+            <strong>Halal-Certified</strong>
+          </div>
+          <div class="fact-item">
+            <span>Hours</span>
+            <strong>10:00 AM – 10:00 PM</strong>
+          </div>
+          <div class="fact-item">
+            <span>Average Price</span>
+            <strong>Rp 40,000 – Rp 100,000</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-card">
+        <img src="images.jpg" alt="Don Bakeshop Grand Indonesia">
+      </div>
+    </section>
+
+    <!-- Roulette Reward Section -->
+    <section class="roulette-section" id="wheel">
+      <div class="roulette-card">
+        <div class="roulette-info">
+          <span class="roulette-tag">ExploreYuk Interactive Bonus</span>
+          <h2>Spin the Wheel for a Discount or App Points</h2>
+          <p>
+            Post a photo or video on <strong>TikTok</strong> or <strong>Instagram</strong> with <strong>#ExploreYuk_DonBakeshop</strong>, spin the wheel, and show your winning screen at the counter to claim an instant discount or <strong>ExploreYuk</strong> loyalty points.
+          </p>
+
+          <div class="hashtag-pill-box">
+            <div>
+              <span class="hashtag-label">Required Post Hashtag</span>
+              <span class="hashtag-value" id="hashtag-text">#ExploreYuk_DonBakeshop</span>
+            </div>
+            <button class="copy-btn" id="copy-btn" onclick="copyHashtag()">Copy</button>
+          </div>
+
+          <div class="spin-controls">
+            <button class="spin-btn" id="spin-btn" onclick="spinWheel()">Spin the Wheel</button>
+            <span class="spins-left" id="spins-status">1 free spin available</span>
+          </div>
+
+          <div class="result-box" id="result-box">
+            <div class="result-eyebrow" id="result-type">Your Reward</div>
+            <div class="result-title" id="result-title">10% OFF Your Order</div>
+            <div class="result-note" id="result-note">
+              Show this screen along with your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter.
+            </div>
+          </div>
+        </div>
+
+        <div class="wheel-stage">
+          <div class="wheel-wrapper">
+            <div class="wheel-pointer"></div>
+            <canvas id="wheel-canvas" width="500" height="500"></canvas>
+            <div class="wheel-center-cap">YUK</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview & Menu Highlights -->
+    <section class="overview-section" id="overview">
+      <div class="section-head">
+        <h2>Overview &amp; Menu Highlights</h2>
+        <span class="section-sub">What to try at Don Bakeshop</span>
+      </div>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <div>
+            <div class="card-num">01</div>
+            <h3>Category</h3>
+            <p>Halal-certified artisan bakery offering pastries, breads, cakes, desserts, and drinks.</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div>
+            <div class="card-num">02</div>
+            <h3>Popular Items</h3>
+            <p>Croissants and danishes, sourdough bread and toast, sweet buns, bomboloni, petit gâteau, macarons, cookies (such as Dubai Chewy Cookie), and specialty drinks including coffee, matcha, hojicha, and gelato.</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div>
+            <div class="card-num">03</div>
+            <h3>Typical Price Range</h3>
+            <p>Around Rp 40,000 – Rp 100,000 per item/order.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery-section" id="gallery">
+      <div class="section-head">
+        <h2>Gallery</h2>
+        <span class="section-sub">Click any photo to enlarge</span>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="photo-card" onclick="openLightbox(0)">
+          <div class="photo-thumb">
+            <img src="Screenshot 2026-11-25 053502.jpg" alt="Artisan pastries assortment">
+          </div>
+          <div class="photo-meta">
+            <span class="photo-title">Artisan Pastries &amp; Danishes</span>
+            <span class="photo-tag">01 / 03</span>
+          </div>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox(1)">
+          <div class="photo-thumb">
+            <img src="images (1).jpg" alt="Croissants display counter">
+          </div>
+          <div class="photo-meta">
+            <span class="photo-title">Fresh Croissant Counter</span>
+            <span class="photo-tag">02 / 03</span>
+          </div>
+        </div>
+
+        <div class="photo-card" onclick="openLightbox(2)">
+          <div class="photo-thumb">
+            <img src="images.jpg" alt="Don Bakeshop storefront">
+          </div>
+          <div class="photo-meta">
+            <span class="photo-title">Skybridge Level 3A Storefront</span>
+            <span class="photo-tag">03 / 03</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Places Nearby -->
+    <section class="nearby-section" id="nearby">
+      <div class="nearby-box">
+        <div class="section-head">
+          <h2>Places Nearby</h2>
+          <span class="section-sub">Explore around Grand Indonesia</span>
+        </div>
+
+        <div class="nearby-grid">
+          <a class="nearby-item" href="https://maps.google.com/?q=Dairy+Queen+Grand+Indonesia" target="_blank" rel="noopener">
+            <span>Dairy Queen</span>
+            <span class="nearby-action">View on Map</span>
+          </a>
+
+          <a class="nearby-item" href="https://maps.google.com/?q=MangGang+Grand+Indonesia" target="_blank" rel="noopener">
+            <span>MangGang Grand Indonesia</span>
+            <span class="nearby-action">View on Map</span>
+          </a>
+
+          <a class="nearby-item" href="https://maps.google.com/?q=Sambal+Bakar+SCBD+Thamrin" target="_blank" rel="noopener">
+            <span>Sambal Bakar SCBD - Thamrin</span>
+            <span class="nearby-action">View on Map</span>
+          </a>
+
+          <a class="nearby-item" href="https://maps.google.com/?q=Bundaran+HI+Jakarta" target="_blank" rel="noopener">
+            <span>Bundaran HI</span>
+            <span class="nearby-action">View on Map</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo">
+        <div class="logo-mark" style="width: 30px; height: 30px;" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <polygon points="15.5 8.5 13.8 13.8 8.5 15.5 10.2 10.2 15.5 8.5"></polygon>
+          </svg>
+        </div>
+        <span class="logo-text" style="font-size: 18px;">Explore<span>Yuk</span></span>
+      </div>
+      <span class="footer-note">Don Bakeshop Grand Indonesia &middot; Skybridge Level 3A (Unit SB-7B)</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <button class="lb-close" onclick="closeLightbox()">&times;</button>
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
     <img id="lb-img" src="" alt="Full view">
-    <div class="lightbox-controls">
-      <button class="lb-btn" onclick="changeSlide(-1)">&#8592; Prev</button>
-      <span class="lb-counter" id="lb-counter">1 / 6</span>
-      <button class="lb-btn" onclick="changeSlide(1)">Next &#8594;</button>
+    <div class="lb-controls">
+      <button class="lb-btn" onclick="changeSlide(-1)">Prev</button>
+      <span class="lb-counter" id="lb-counter">1 / 3</span>
+      <button class="lb-btn" onclick="changeSlide(1)">Next</button>
     </div>
   </div>
 
   <script>
+    /* Roulette Wheel Configuration */
+    const segments = [
+      {
+        label: "10% OFF",
+        bg: "rgb(65, 105, 225)",
+        text: "#ffffff",
+        type: "Instant Cafe Discount",
+        title: "10% OFF Your Order",
+        note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 10% off."
+      },
+      {
+        label: "+150 PTS",
+        bg: "rgb(135, 206, 235)",
+        text: "#10233b",
+        type: "ExploreYuk App Bonus",
+        title: "+150 ExploreYuk Points",
+        note: "150 loyalty points added to your ExploreYuk session! Share your post with #ExploreYuk_DonBakeshop to redeem in-app rewards."
+      },
+      {
+        label: "5% OFF",
+        bg: "rgb(70, 130, 180)",
+        text: "#ffffff",
+        type: "Instant Cafe Discount",
+        title: "5% OFF Your Order",
+        note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 5% off."
+      },
+      {
+        label: "+300 PTS",
+        bg: "#dcebf7",
+        text: "#1c242e",
+        type: "ExploreYuk App Bonus",
+        title: "+300 ExploreYuk Points",
+        note: "300 loyalty points unlocked! Post with #ExploreYuk_DonBakeshop on TikTok or Instagram to claim your ExploreYuk balance."
+      },
+      {
+        label: "10% OFF",
+        bg: "rgb(65, 105, 225)",
+        text: "#ffffff",
+        type: "Instant Cafe Discount",
+        title: "10% OFF Your Order",
+        note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 10% off."
+      },
+      {
+        label: "+100 PTS",
+        bg: "rgb(135, 206, 235)",
+        text: "#10233b",
+        type: "ExploreYuk App Bonus",
+        title: "+100 ExploreYuk Points",
+        note: "100 loyalty points added! Share your post with #ExploreYuk_DonBakeshop on TikTok or Instagram to boost your ExploreYuk rewards."
+      }
+    ];
+
+    const canvas = document.getElementById("wheel-canvas");
+    const ctx = canvas.getContext("2d");
+    const numSegments = segments.length;
+    const arcSize = (2 * Math.PI) / numSegments;
+    let currentRotation = 0;
+    let isSpinning = false;
+    let hasSpun = false;
+
+    function drawWheel() {
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = centerX;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < numSegments; i++) {
+        const startAngle = i * arcSize - Math.PI / 2;
+        const endAngle = startAngle + arcSize;
+
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fillStyle = segments[i].bg;
+        ctx.fill();
+
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "#ffffff";
+        ctx.stroke();
+
+        // Draw Label
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(startAngle + arcSize / 2);
+        ctx.textAlign = "right";
+        ctx.fillStyle = segments[i].text;
+        ctx.font = "800 22px Montserrat, sans-serif";
+        ctx.fillText(segments[i].label, radius - 34, 8);
+        ctx.restore();
+      }
+    }
+
+    drawWheel();
+
+    function spinWheel() {
+      if (isSpinning || hasSpun) return;
+      isSpinning = true;
+
+      const spinBtn = document.getElementById("spin-btn");
+      spinBtn.disabled = true;
+      spinBtn.textContent = "Spinning...";
+
+      const winningIndex = Math.floor(Math.random() * numSegments);
+      const sliceDeg = 360 / numSegments;
+      const targetAngle = 360 - (winningIndex * sliceDeg + sliceDeg / 2);
+      const extraSpins = 5 * 360;
+      currentRotation += extraSpins + targetAngle;
+
+      canvas.style.transform = `rotate(${currentRotation}deg)`;
+
+      setTimeout(() => {
+        isSpinning = false;
+        hasSpun = true;
+        const prize = segments[winningIndex];
+
+        document.getElementById("result-type").textContent = prize.type;
+        document.getElementById("result-title").textContent = prize.title;
+        document.getElementById("result-note").textContent = prize.note;
+        document.getElementById("result-box").classList.add("visible");
+
+        spinBtn.textContent = "Reward Claimed";
+        document.getElementById("spins-status").textContent = "Prize unlocked";
+      }, 4250);
+    }
+
+    /* Gallery Lightbox */
     const photos = [
-      "5197277833007408419.jpg",
-      "5197277833007408418.jpg",
-      "5193168936579573064.jpg",
-      "5197277833007408417.jpg",
-      "5197277833007408416.jpg",
-      "5197277833007408415.jpg"
+      "Screenshot 2026-11-25 053502.jpg",
+      "images (1).jpg",
+      "images.jpg"
     ];
 
     let currentIndex = 0;
@@ -367,8 +1201,24 @@
       lbCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
     }
 
+    function copyHashtag() {
+      const tag = document.getElementById('hashtag-text').textContent;
+      navigator.clipboard.writeText(tag).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = 'Copied';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      });
+    }
+
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (e.key === 'ArrowRight') changeSlide(1);
     });
   </script>
 </body>
