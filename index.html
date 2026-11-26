@@ -52,6 +52,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
     .logo {
@@ -102,6 +103,44 @@
       color: var(--royal);
     }
 
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Language Switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      background: var(--soft-bg);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-light);
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--royal);
+      color: #ffffff;
+    }
+
+    .lang-btn:not(.active):hover {
+      color: var(--royal);
+    }
+
     .header-pill-btn {
       background: var(--royal);
       color: #ffffff;
@@ -111,6 +150,7 @@
       padding: 10px 22px;
       border-radius: 999px;
       transition: background 0.2s;
+      white-space: nowrap;
     }
 
     .header-pill-btn:hover {
@@ -687,6 +727,7 @@
       background: var(--soft-bg);
       padding: 6px 14px;
       border-radius: 999px;
+      white-space: nowrap;
     }
 
     .nearby-item:hover .nearby-action {
@@ -795,6 +836,12 @@
       }
     }
 
+    @media (max-width: 480px) {
+      .header-pill-btn {
+        display: none;
+      }
+    }
+
     /* Lightbox */
     .lightbox {
       position: fixed;
@@ -879,23 +926,30 @@
       </a>
 
       <nav class="nav-links">
-        <a href="#wheel">Spin &amp; Win</a>
-        <a href="#overview">Menu Highlights</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#nearby">Places Nearby</a>
+        <a href="#wheel" data-i18n="nav_wheel">Spin &amp; Win</a>
+        <a href="#overview" data-i18n="nav_overview">Menu Highlights</a>
+        <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="#nearby" data-i18n="nav_nearby">Places Nearby</a>
       </nav>
 
-      <a class="header-pill-btn" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">
-        Eco Route
-      </a>
+      <div class="header-controls">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+          <button type="button" class="lang-btn" id="btn-id" onclick="setLanguage('id')">ID</button>
+        </div>
+
+        <a class="header-pill-btn" data-i18n="header_eco_btn" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">
+          Eco Route
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- Running Ticker -->
   <div class="ticker-wrap" aria-hidden="true">
     <div class="ticker-track">
-      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Travel Sustainably with Google Maps Transit &amp; Walking Routes &bull; Post with #ExploreYuk_DonBakeshop &bull;</span>
-      <span class="ticker-item">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Travel Sustainably with Google Maps Transit &amp; Walking Routes &bull; Post with #ExploreYuk_DonBakeshop &bull;</span>
+      <span class="ticker-item" data-i18n="ticker_text">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Travel Sustainably with Google Maps Transit &amp; Walking Routes &bull; Post with #ExploreYuk_DonBakeshop &bull;</span>
+      <span class="ticker-item" data-i18n="ticker_text">Spin the ExploreYuk Wheel &bull; Win Instant Discounts up to 10% or ExploreYuk App Points &bull; Travel Sustainably with Google Maps Transit &amp; Walking Routes &bull; Post with #ExploreYuk_DonBakeshop &bull;</span>
     </div>
   </div>
 
@@ -903,33 +957,33 @@
     <!-- Hero Split -->
     <section class="hero">
       <div class="hero-content">
-        <span class="hero-eyebrow">Skybridge Level 3A (Unit SB-7B)</span>
+        <span class="hero-eyebrow" data-i18n="hero_eyebrow">Skybridge Level 3A (Unit SB-7B)</span>
         <h1>Don Bakeshop Grand Indonesia</h1>
-        <p class="hero-desc">
+        <p class="hero-desc" data-i18n="hero_desc">
           Don Bakeshop at Grand Indonesia is an artisan bakery located on Skybridge Level 3A (Unit SB-7B). It is open daily from 10:00 AM to 10:00 PM.
         </p>
 
         <div class="hero-buttons">
-          <a class="btn-primary" href="#wheel">Spin Reward Wheel</a>
-          <a class="btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">Plan Eco Route in Google Maps</a>
+          <a class="btn-primary" href="#wheel" data-i18n="hero_btn_spin">Spin Reward Wheel</a>
+          <a class="btn-outline" data-i18n="hero_btn_map" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">Plan Eco Route in Google Maps</a>
         </div>
 
         <div class="sustainability-note">
           <span class="sustainability-dot"></span>
-          <span>Sustainability Tip: Plan a low-emission walking or public transit route via Google Maps (MRT Bundaran HI &amp; TransJakarta are steps away).</span>
+          <span data-i18n="hero_eco_tip">Sustainability Tip: Plan a low-emission walking or public transit route via Google Maps (MRT Bundaran HI &amp; TransJakarta are steps away).</span>
         </div>
 
         <div class="hero-facts">
           <div class="fact-item">
-            <span>Status</span>
-            <strong>Halal-Certified</strong>
+            <span data-i18n="fact_status_label">Status</span>
+            <strong data-i18n="fact_status_val">Halal-Certified</strong>
           </div>
           <div class="fact-item">
-            <span>Hours</span>
-            <strong>10:00 AM – 10:00 PM</strong>
+            <span data-i18n="fact_hours_label">Hours</span>
+            <strong data-i18n="fact_hours_val">10:00 AM – 10:00 PM</strong>
           </div>
           <div class="fact-item">
-            <span>Average Price</span>
+            <span data-i18n="fact_price_label">Average Price</span>
             <strong>Rp 40,000 – Rp 100,000</strong>
           </div>
         </div>
@@ -944,23 +998,23 @@
     <section class="roulette-section" id="wheel">
       <div class="roulette-card">
         <div class="roulette-info">
-          <span class="roulette-tag">ExploreYuk Interactive Bonus</span>
-          <h2>Spin the Wheel for a Discount or App Points</h2>
-          <p>
+          <span class="roulette-tag" data-i18n="wheel_tag">ExploreYuk Interactive Bonus</span>
+          <h2 data-i18n="wheel_title">Spin the Wheel for a Discount or App Points</h2>
+          <p data-i18n="wheel_desc">
             Post a photo or video on <strong>TikTok</strong> or <strong>Instagram</strong> with <strong>#ExploreYuk_DonBakeshop</strong>, spin the wheel, and show your winning screen at the counter to claim an instant discount or <strong>ExploreYuk</strong> loyalty points.
           </p>
 
           <div class="hashtag-pill-box">
             <div>
-              <span class="hashtag-label">Required Post Hashtag</span>
+              <span class="hashtag-label" data-i18n="hashtag_label">Required Post Hashtag</span>
               <span class="hashtag-value" id="hashtag-text">#ExploreYuk_DonBakeshop</span>
             </div>
-            <button class="copy-btn" id="copy-btn" onclick="copyHashtag()">Copy</button>
+            <button class="copy-btn" id="copy-btn" onclick="copyHashtag()" data-i18n="copy_btn">Copy</button>
           </div>
 
           <div class="spin-controls">
-            <button class="spin-btn" id="spin-btn" onclick="spinWheel()">Spin the Wheel</button>
-            <span class="spins-left" id="spins-status">1 free spin available</span>
+            <button class="spin-btn" id="spin-btn" onclick="spinWheel()" data-i18n="spin_btn">Spin the Wheel</button>
+            <span class="spins-left" id="spins-status" data-i18n="spins_available">1 free spin available</span>
           </div>
 
           <div class="result-box" id="result-box">
@@ -985,32 +1039,32 @@
     <!-- Overview & Menu Highlights -->
     <section class="overview-section" id="overview">
       <div class="section-head">
-        <h2>Overview &amp; Menu Highlights</h2>
-        <span class="section-sub">What to try at Don Bakeshop</span>
+        <h2 data-i18n="overview_title">Overview &amp; Menu Highlights</h2>
+        <span class="section-sub" data-i18n="overview_sub">What to try at Don Bakeshop</span>
       </div>
 
       <div class="cards-grid">
         <div class="info-card">
           <div>
             <div class="card-num">01</div>
-            <h3>Category</h3>
-            <p>Halal-certified artisan bakery offering pastries, breads, cakes, desserts, and drinks.</p>
+            <h3 data-i18n="card1_title">Category</h3>
+            <p data-i18n="card1_desc">Halal-certified artisan bakery offering pastries, breads, cakes, desserts, and drinks.</p>
           </div>
         </div>
 
         <div class="info-card">
           <div>
             <div class="card-num">02</div>
-            <h3>Popular Items</h3>
-            <p>Croissants and danishes, sourdough bread and toast, sweet buns, bomboloni, petit gâteau, macarons, cookies (such as Dubai Chewy Cookie), and specialty drinks including coffee, matcha, hojicha, and gelato.</p>
+            <h3 data-i18n="card2_title">Popular Items</h3>
+            <p data-i18n="card2_desc">Croissants and danishes, sourdough bread and toast, sweet buns, bomboloni, petit gâteau, macarons, cookies (such as Dubai Chewy Cookie), and specialty drinks including coffee, matcha, hojicha, and gelato.</p>
           </div>
         </div>
 
         <div class="info-card">
           <div>
             <div class="card-num">03</div>
-            <h3>Typical Price Range</h3>
-            <p>Around Rp 40,000 – Rp 100,000 per item/order.</p>
+            <h3 data-i18n="card3_title">Typical Price Range</h3>
+            <p data-i18n="card3_desc">Around Rp 40,000 – Rp 100,000 per item/order.</p>
           </div>
         </div>
       </div>
@@ -1019,8 +1073,8 @@
     <!-- Photo Gallery -->
     <section class="gallery-section" id="gallery">
       <div class="section-head">
-        <h2>Gallery</h2>
-        <span class="section-sub">Click any photo to enlarge</span>
+        <h2 data-i18n="gallery_title">Gallery</h2>
+        <span class="section-sub" data-i18n="gallery_sub">Click any photo to enlarge</span>
       </div>
 
       <div class="gallery-grid">
@@ -1029,7 +1083,7 @@
             <img src="Screenshot 2026-11-25 053502.png" alt="Artisan pastries assortment">
           </div>
           <div class="photo-meta">
-            <span class="photo-title">Artisan Pastries &amp; Danishes</span>
+            <span class="photo-title" data-i18n="photo1_title">Artisan Pastries &amp; Danishes</span>
             <span class="photo-tag">01 / 03</span>
           </div>
         </div>
@@ -1039,7 +1093,7 @@
             <img src="images (1).jpg" alt="Croissants display counter">
           </div>
           <div class="photo-meta">
-            <span class="photo-title">Fresh Croissant Counter</span>
+            <span class="photo-title" data-i18n="photo2_title">Fresh Croissant Counter</span>
             <span class="photo-tag">02 / 03</span>
           </div>
         </div>
@@ -1049,7 +1103,7 @@
             <img src="images.jpg" alt="Don Bakeshop storefront">
           </div>
           <div class="photo-meta">
-            <span class="photo-title">Skybridge Level 3A Storefront</span>
+            <span class="photo-title" data-i18n="photo3_title">Skybridge Level 3A Storefront</span>
             <span class="photo-tag">03 / 03</span>
           </div>
         </div>
@@ -1060,41 +1114,41 @@
     <section class="nearby-section" id="nearby">
       <div class="nearby-box">
         <div class="section-head">
-          <h2>Places Nearby</h2>
-          <span class="section-sub">Explore around Grand Indonesia</span>
+          <h2 data-i18n="nearby_title">Places Nearby</h2>
+          <span class="section-sub" data-i18n="nearby_sub">Explore around Grand Indonesia</span>
         </div>
 
         <div class="nearby-grid">
           <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=Dairy+Queen+Grand+Indonesia&travelmode=walking" target="_blank" rel="noopener">
             <span>Dairy Queen</span>
-            <span class="nearby-action">Walk via Maps</span>
+            <span class="nearby-action" data-i18n="action_walk">Walk via Maps</span>
           </a>
 
           <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=MangGang+Grand+Indonesia&travelmode=walking" target="_blank" rel="noopener">
             <span>MangGang Grand Indonesia</span>
-            <span class="nearby-action">Walk via Maps</span>
+            <span class="nearby-action" data-i18n="action_walk">Walk via Maps</span>
           </a>
 
           <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=Sambal+Bakar+SCBD+Thamrin&travelmode=transit" target="_blank" rel="noopener">
             <span>Sambal Bakar SCBD - Thamrin</span>
-            <span class="nearby-action">Eco Transit</span>
+            <span class="nearby-action" data-i18n="action_transit">Eco Transit</span>
           </a>
 
           <a class="nearby-item" href="https://www.google.com/maps/dir/?api=1&destination=Bundaran+HI+Jakarta&travelmode=walking" target="_blank" rel="noopener">
             <span>Bundaran HI</span>
-            <span class="nearby-action">Walk via Maps</span>
+            <span class="nearby-action" data-i18n="action_walk">Walk via Maps</span>
           </a>
         </div>
 
         <!-- Sustainability Callout inside Nearby Box -->
         <div class="eco-bar">
           <div class="eco-copy">
-            <span class="eco-label">Sustainability &amp; Green Mobility</span>
-            <p class="eco-text">
+            <span class="eco-label" data-i18n="eco_label">Sustainability &amp; Green Mobility</span>
+            <p class="eco-text" data-i18n="eco_text">
               Reduce your carbon footprint while exploring Jakarta — build an eco-friendly walking, MRT, or fuel-efficient route directly in Google Maps.
             </p>
           </div>
-          <a class="eco-link" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">
+          <a class="eco-link" data-i18n="eco_btn" href="https://www.google.com/maps/dir/?api=1&destination=Don+Bakeshop+Grand+Indonesia&travelmode=transit" target="_blank" rel="noopener">
             Build Eco Route
           </a>
         </div>
@@ -1114,7 +1168,7 @@
         </div>
         <span class="logo-text" style="font-size: 18px;">Explore<span>Yuk</span></span>
       </div>
-      <span class="footer-note">Don Bakeshop Grand Indonesia &middot; Sustainable City Exploration</span>
+      <span class="footer-note" data-i18n="footer_note">Don Bakeshop Grand Indonesia &middot; Sustainable City Exploration</span>
     </div>
   </footer>
 
@@ -1123,64 +1177,250 @@
     <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
     <img id="lb-img" src="" alt="Full view">
     <div class="lb-controls">
-      <button class="lb-btn" onclick="changeSlide(-1)">Prev</button>
+      <button class="lb-btn" onclick="changeSlide(-1)" data-i18n="lb_prev">Prev</button>
       <span class="lb-counter" id="lb-counter">1 / 3</span>
-      <button class="lb-btn" onclick="changeSlide(1)">Next</button>
+      <button class="lb-btn" onclick="changeSlide(1)" data-i18n="lb_next">Next</button>
     </div>
   </div>
 
   <script>
+    let currentLang = 'en';
+    let lastWonIndex = null;
+
+    const translations = {
+      en: {
+        nav_wheel: "Spin & Win",
+        nav_overview: "Menu Highlights",
+        nav_gallery: "Gallery",
+        nav_nearby: "Places Nearby",
+        header_eco_btn: "Eco Route",
+        ticker_text: "Spin the ExploreYuk Wheel \u2022 Win Instant Discounts up to 10% or ExploreYuk App Points \u2022 Travel Sustainably with Google Maps Transit & Walking Routes \u2022 Post with #ExploreYuk_DonBakeshop \u2022",
+        hero_eyebrow: "Skybridge Level 3A (Unit SB-7B)",
+        hero_desc: "Don Bakeshop at Grand Indonesia is an artisan bakery located on Skybridge Level 3A (Unit SB-7B). It is open daily from 10:00 AM to 10:00 PM.",
+        hero_btn_spin: "Spin Reward Wheel",
+        hero_btn_map: "Plan Eco Route in Google Maps",
+        hero_eco_tip: "Sustainability Tip: Plan a low-emission walking or public transit route via Google Maps (MRT Bundaran HI & TransJakarta are steps away).",
+        fact_status_label: "Status",
+        fact_status_val: "Halal-Certified",
+        fact_hours_label: "Hours",
+        fact_hours_val: "10:00 AM – 10:00 PM",
+        fact_price_label: "Average Price",
+        wheel_tag: "ExploreYuk Interactive Bonus",
+        wheel_title: "Spin the Wheel for a Discount or App Points",
+        wheel_desc: "Post a photo or video on <strong>TikTok</strong> or <strong>Instagram</strong> with <strong>#ExploreYuk_DonBakeshop</strong>, spin the wheel, and show your winning screen at the counter to claim an instant discount or <strong>ExploreYuk</strong> loyalty points.",
+        hashtag_label: "Required Post Hashtag",
+        copy_btn: "Copy",
+        copied_btn: "Copied",
+        spin_btn: "Spin the Wheel",
+        spinning_btn: "Spinning...",
+        claimed_btn: "Reward Claimed",
+        spins_available: "1 free spin available",
+        prize_unlocked: "Prize unlocked",
+        overview_title: "Overview & Menu Highlights",
+        overview_sub: "What to try at Don Bakeshop",
+        card1_title: "Category",
+        card1_desc: "Halal-certified artisan bakery offering pastries, breads, cakes, desserts, and drinks.",
+        card2_title: "Popular Items",
+        card2_desc: "Croissants and danishes, sourdough bread and toast, sweet buns, bomboloni, petit gâteau, macarons, cookies (such as Dubai Chewy Cookie), and specialty drinks including coffee, matcha, hojicha, and gelato.",
+        card3_title: "Typical Price Range",
+        card3_desc: "Around Rp 40,000 – Rp 100,000 per item/order.",
+        gallery_title: "Gallery",
+        gallery_sub: "Click any photo to enlarge",
+        photo1_title: "Artisan Pastries & Danishes",
+        photo2_title: "Fresh Croissant Counter",
+        photo3_title: "Skybridge Level 3A Storefront",
+        nearby_title: "Places Nearby",
+        nearby_sub: "Explore around Grand Indonesia",
+        action_walk: "Walk via Maps",
+        action_transit: "Eco Transit",
+        eco_label: "Sustainability & Green Mobility",
+        eco_text: "Reduce your carbon footprint while exploring Jakarta — build an eco-friendly walking, MRT, or fuel-efficient route directly in Google Maps.",
+        eco_btn: "Build Eco Route",
+        footer_note: "Don Bakeshop Grand Indonesia \u00b7 Sustainable City Exploration",
+        lb_prev: "Prev",
+        lb_next: "Next"
+      },
+      id: {
+        nav_wheel: "Putar & Menang",
+        nav_overview: "Menu Unggulan",
+        nav_gallery: "Galeri",
+        nav_nearby: "Tempat Terdekat",
+        header_eco_btn: "Rute Ramah Lingkungan",
+        ticker_text: "Putar Roda ExploreYuk \u2022 Menangkan Diskon Langsung hingga 10% atau Poin Aplikasi ExploreYuk \u2022 Jelajah Ramah Lingkungan dengan Rute MRT & Jalan Kaki Google Maps \u2022 Posting dengan #ExploreYuk_DonBakeshop \u2022",
+        hero_eyebrow: "Skybridge Lantai 3A (Unit SB-7B)",
+        hero_desc: "Don Bakeshop di Grand Indonesia adalah toko roti artisan yang berlokasi di Skybridge Lantai 3A (Unit SB-7B). Buka setiap hari mulai pukul 10.00 hingga 22.00 WIB.",
+        hero_btn_spin: "Putar Roda Hadiah",
+        hero_btn_map: "Buat Rute Eco di Google Maps",
+        hero_eco_tip: "Tips Keberlanjutan: Rencanakan rute jalan kaki atau transportasi umum rendah emisi melalui Google Maps (dekat Stasiun MRT Bundaran HI & Halte TransJakarta).",
+        fact_status_label: "Status",
+        fact_status_val: "Bersertifikat Halal",
+        fact_hours_label: "Jam Buka",
+        fact_hours_val: "10.00 – 22.00 WIB",
+        fact_price_label: "Kisaran Harga",
+        wheel_tag: "Bonus Interaktif ExploreYuk",
+        wheel_title: "Putar Roda untuk Diskon atau Poin Aplikasi",
+        wheel_desc: "Unggah foto atau video di <strong>TikTok</strong> atau <strong>Instagram</strong> dengan tagar <strong>#ExploreYuk_DonBakeshop</strong>, putar rodanya, dan tunjukkan layar kemenangan Anda di kasir untuk mendapatkan diskon langsung atau poin loyalitas <strong>ExploreYuk</strong>.",
+        hashtag_label: "Tagar Wajib Postingan",
+        copy_btn: "Salin",
+        copied_btn: "Tersalin",
+        spin_btn: "Putar Roda",
+        spinning_btn: "Memutar...",
+        claimed_btn: "Hadiah Diklaim",
+        spins_available: "Tersedia 1 putaran gratis",
+        prize_unlocked: "Hadiah terbuka",
+        overview_title: "Ringkasan & Menu Unggulan",
+        overview_sub: "Rekomendasi sajian di Don Bakeshop",
+        card1_title: "Kategori",
+        card1_desc: "Toko roti artisan bersertifikat halal yang menyajikan aneka pastry, roti, kue, hidangan penutup, dan minuman.",
+        card2_title: "Menu Populer",
+        card2_desc: "Croissant dan danish, roti sourdough dan toast, sweet buns, bomboloni, petit gâteau, macaron, cookies (seperti Dubai Chewy Cookie), serta minuman spesial seperti kopi, matcha, hojicha, dan gelato.",
+        card3_title: "Kisaran Harga",
+        card3_desc: "Sekitar Rp 40.000 – Rp 100.000 per item/pesanan.",
+        gallery_title: "Galeri Foto",
+        gallery_sub: "Ketuk foto untuk memperbesar",
+        photo1_title: "Aneka Pastry & Danish Artisan",
+        photo2_title: "Etalase Croissant Segar",
+        photo3_title: "Tampak Depan Skybridge Lantai 3A",
+        nearby_title: "Tempat Terdekat",
+        nearby_sub: "Jelajahi sekitar Grand Indonesia",
+        action_walk: "Jalan Kaki via Maps",
+        action_transit: "Transportasi Umum",
+        eco_label: "Keberlanjutan & Mobilitas Hijau",
+        eco_text: "Kurangi jejak karbon saat menjelajahi Jakarta — buat rute ramah lingkungan dengan berjalan kaki, MRT, atau rute hemat bahan bakar langsung di Google Maps.",
+        eco_btn: "Buat Rute Eco",
+        footer_note: "Don Bakeshop Grand Indonesia \u00b7 Eksplorasi Kota Berkelanjutan",
+        lb_prev: "Sebelumnya",
+        lb_next: "Berikutnya"
+      }
+    };
+
     /* Roulette Wheel Configuration */
     const segments = [
       {
         label: "10% OFF",
         bg: "rgb(65, 105, 225)",
         text: "#ffffff",
-        type: "Instant Cafe Discount",
-        title: "10% OFF Your Order",
-        note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 10% off."
+        en: {
+          type: "Instant Cafe Discount",
+          title: "10% OFF Your Order",
+          note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 10% off."
+        },
+        id: {
+          type: "Diskon Langsung di Kafe",
+          title: "Diskon 10% untuk Pesanan Anda",
+          note: "Tunjukkan layar ini beserta postingan TikTok atau Instagram Anda (#ExploreYuk_DonBakeshop) di kasir Don Bakeshop untuk mendapatkan diskon 10%."
+        }
       },
       {
         label: "+150 PTS",
         bg: "rgb(135, 206, 235)",
         text: "#10233b",
-        type: "ExploreYuk App Bonus",
-        title: "+150 ExploreYuk Points",
-        note: "150 loyalty points added to your ExploreYuk session! Share your post with #ExploreYuk_DonBakeshop to redeem in-app rewards."
+        en: {
+          type: "ExploreYuk App Bonus",
+          title: "+150 ExploreYuk Points",
+          note: "150 loyalty points added to your ExploreYuk session! Share your post with #ExploreYuk_DonBakeshop to redeem in-app rewards."
+        },
+        id: {
+          type: "Bonus Aplikasi ExploreYuk",
+          title: "+150 Poin ExploreYuk",
+          note: "150 poin loyalitas ditambahkan ke sesi ExploreYuk Anda! Bagikan postingan dengan #ExploreYuk_DonBakeshop untuk menukarkan hadiah di aplikasi."
+        }
       },
       {
         label: "5% OFF",
         bg: "rgb(70, 130, 180)",
         text: "#ffffff",
-        type: "Instant Cafe Discount",
-        title: "5% OFF Your Order",
-        note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 5% off."
+        en: {
+          type: "Instant Cafe Discount",
+          title: "5% OFF Your Order",
+          note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 5% off."
+        },
+        id: {
+          type: "Diskon Langsung di Kafe",
+          title: "Diskon 5% untuk Pesanan Anda",
+          note: "Tunjukkan layar ini beserta postingan TikTok atau Instagram Anda (#ExploreYuk_DonBakeshop) di kasir Don Bakeshop untuk mendapatkan diskon 5%."
+        }
       },
       {
         label: "+300 PTS",
         bg: "#dcebf7",
         text: "#1c242e",
-        type: "ExploreYuk App Bonus",
-        title: "+300 ExploreYuk Points",
-        note: "300 loyalty points unlocked! Post with #ExploreYuk_DonBakeshop on TikTok or Instagram to claim your ExploreYuk balance."
+        en: {
+          type: "ExploreYuk App Bonus",
+          title: "+300 ExploreYuk Points",
+          note: "300 loyalty points unlocked! Post with #ExploreYuk_DonBakeshop on TikTok or Instagram to claim your ExploreYuk balance."
+        },
+        id: {
+          type: "Bonus Aplikasi ExploreYuk",
+          title: "+300 Poin ExploreYuk",
+          note: "300 poin loyalitas terbuka! Posting dengan #ExploreYuk_DonBakeshop di TikTok atau Instagram untuk mengklaim saldo ExploreYuk Anda."
+        }
       },
       {
         label: "10% OFF",
         bg: "rgb(65, 105, 225)",
         text: "#ffffff",
-        type: "Instant Cafe Discount",
-        title: "10% OFF Your Order",
-        note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 10% off."
+        en: {
+          type: "Instant Cafe Discount",
+          title: "10% OFF Your Order",
+          note: "Show this screen and your TikTok or Instagram post (#ExploreYuk_DonBakeshop) at the Don Bakeshop counter to get 10% off."
+        },
+        id: {
+          type: "Diskon Langsung di Kafe",
+          title: "Diskon 10% untuk Pesanan Anda",
+          note: "Tunjukkan layar ini beserta postingan TikTok atau Instagram Anda (#ExploreYuk_DonBakeshop) di kasir Don Bakeshop untuk mendapatkan diskon 10%."
+        }
       },
       {
         label: "+100 PTS",
         bg: "rgb(135, 206, 235)",
         text: "#10233b",
-        type: "ExploreYuk App Bonus",
-        title: "+100 ExploreYuk Points",
-        note: "100 loyalty points added! Share your post with #ExploreYuk_DonBakeshop on TikTok or Instagram to boost your ExploreYuk rewards."
+        en: {
+          type: "ExploreYuk App Bonus",
+          title: "+100 ExploreYuk Points",
+          note: "100 loyalty points added! Share your post with #ExploreYuk_DonBakeshop on TikTok or Instagram to boost your ExploreYuk rewards."
+        },
+        id: {
+          type: "Bonus Aplikasi ExploreYuk",
+          title: "+100 Poin ExploreYuk",
+          note: "100 poin loyalitas ditambahkan! Bagikan postingan dengan #ExploreYuk_DonBakeshop di TikTok atau Instagram untuk menambah hadiah ExploreYuk Anda."
+        }
       }
     ];
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+
+      const dict = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      const spinBtn = document.getElementById('spin-btn');
+      const spinsStatus = document.getElementById('spins-status');
+      if (hasSpun) {
+        spinBtn.textContent = dict.claimed_btn;
+        spinsStatus.textContent = dict.prize_unlocked;
+        if (lastWonIndex !== null) {
+          const prize = segments[lastWonIndex][lang];
+          document.getElementById("result-type").textContent = prize.type;
+          document.getElementById("result-title").textContent = prize.title;
+          document.getElementById("result-note").textContent = prize.note;
+        }
+      } else if (isSpinning) {
+        spinBtn.textContent = dict.spinning_btn;
+      } else {
+        spinBtn.textContent = dict.spin_btn;
+        spinsStatus.textContent = dict.spins_available;
+      }
+    }
 
     const canvas = document.getElementById("wheel-canvas");
     const ctx = canvas.getContext("2d");
@@ -1231,9 +1471,10 @@
 
       const spinBtn = document.getElementById("spin-btn");
       spinBtn.disabled = true;
-      spinBtn.textContent = "Spinning...";
+      spinBtn.textContent = translations[currentLang].spinning_btn;
 
       const winningIndex = Math.floor(Math.random() * numSegments);
+      lastWonIndex = winningIndex;
       const sliceDeg = 360 / numSegments;
       const targetAngle = 360 - (winningIndex * sliceDeg + sliceDeg / 2);
       const extraSpins = 5 * 360;
@@ -1244,15 +1485,15 @@
       setTimeout(() => {
         isSpinning = false;
         hasSpun = true;
-        const prize = segments[winningIndex];
+        const prize = segments[winningIndex][currentLang];
 
         document.getElementById("result-type").textContent = prize.type;
         document.getElementById("result-title").textContent = prize.title;
         document.getElementById("result-note").textContent = prize.note;
         document.getElementById("result-box").classList.add("visible");
 
-        spinBtn.textContent = "Reward Claimed";
-        document.getElementById("spins-status").textContent = "Prize unlocked";
+        spinBtn.textContent = translations[currentLang].claimed_btn;
+        document.getElementById("spins-status").textContent = translations[currentLang].prize_unlocked;
       }, 4250);
     }
 
@@ -1292,8 +1533,8 @@
       const tag = document.getElementById('hashtag-text').textContent;
       navigator.clipboard.writeText(tag).then(() => {
         const btn = document.getElementById('copy-btn');
-        btn.textContent = 'Copied';
-        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+        btn.textContent = translations[currentLang].copied_btn;
+        setTimeout(() => { btn.textContent = translations[currentLang].copy_btn; }, 2000);
       });
     }
 
